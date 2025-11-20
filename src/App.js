@@ -5,6 +5,10 @@ import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import './App.css';
 
+// Fix for production build worker issue
+// Set worker URL to use the worker file from public folder
+maplibregl.workerUrl = `${process.env.PUBLIC_URL || ''}/maplibre-gl-csp-worker.js`;
+
 function App() {
   return (
     <div className="App">
